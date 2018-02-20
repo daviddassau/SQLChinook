@@ -102,6 +102,16 @@ from Genre
 select COUNT(*) as [Number of tracks in each playlist]
 from Playlist
 
+--Provide a query that shows all the Tracks, but displays no IDs. 
+--The result should include the Album name, Media type and Genre.
+select t.Name as [Track Name],
+	   a.Title as [Album Name],
+	   m.Name as [Media Type],
+	   g.Name as [Genre]
+from Track t
+	join Album a on a.AlbumId = t.TrackId
+	join MediaType m on m.MediaTypeId = t.TrackId
+	join Genre g on g.GenreId = t.TrackId
 
 
 
