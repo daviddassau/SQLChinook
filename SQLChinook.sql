@@ -33,6 +33,21 @@ select e.FirstName + ' ' + e.LastName Name, i.InvoiceId
 from Employee e
 join customer c on c.SupportRepId = e.EmployeeId
 join invoice i on i.CustomerId = c.CustomerId
-where e.Title = 'Sales Support Agent'
+--where e.Title = 'Sales Support Agent'
 
 --Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+select c.FirstName + ' ' + c.LastName Name, 
+	   c.Country,
+	   i.Total,
+	   e.FirstName + ' ' + e.LastName as [Sales Agent]
+from Customer c
+join Invoice i on i.CustomerId = c.CustomerId
+join Employee e on e.EmployeeId = c.SupportRepId
+
+--How many Invoices were there in 2009 and 2011?
+select count(*) as [Total Invoices]
+from Invoice
+where InvoiceDate like '%2009%'
+or InvoiceDate like '%2011%'
+
+--
