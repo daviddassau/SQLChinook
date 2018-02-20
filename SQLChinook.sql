@@ -113,7 +113,7 @@ from Track t
 	join Genre g on g.GenreId = t.TrackId
 
 --Provide a query that shows all Invoices but includes the # of invoice line items.
-select InvoiceId
+select *
 from Invoice
 
 select *
@@ -126,6 +126,19 @@ from Invoice i
 
 
 --Provide a query that shows total sales made by each sales agent.
+select *
+from Customer
+
+select *
+from Employee
+
+select *
+from InvoiceLine
+
+select e.FirstName + ' ' + e.LastName as [Sales Agent Name]
+from Employee e
+where e.Title = 'Sales Support Agent'
+
 
 
 
