@@ -61,3 +61,9 @@ select COUNT(*) as [Number of line items for Invoice 37]
 from InvoiceLine
 where InvoiceId = 37
 
+--Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice.
+select COUNT(*) as [Number of line items for each invoice]
+from InvoiceLine
+group by InvoiceId
+
+--
