@@ -34,3 +34,5 @@ from Employee e
 join customer c on c.SupportRepId = e.EmployeeId
 join invoice i on i.CustomerId = c.CustomerId
 where e.Title = 'Sales Support Agent'
+
+--Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
