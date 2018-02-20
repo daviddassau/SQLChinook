@@ -84,3 +84,52 @@ select COUNT(InvoiceId) as [Number of invoices],
 	   BillingCountry
 from Invoice
 group by BillingCountry
+
+--Provide a query that shows the total number of tracks in each playlist. 
+--The Playlist name should be included on the resulant table.
+select *
+from Playlist
+
+select *
+from Track
+
+select *
+from PlaylistTrack
+
+select *
+from Genre
+
+select COUNT(*) as [Number of tracks in each playlist]
+from Playlist
+
+
+
+
+
+
+
+-- subquery
+select (select firstname + ' ' + lastname 
+	    from customer 
+		where customer.CustomerId = i.customerId), 
+  i.Total
+from Invoice i
+where i.InvoiceDate between '2009-01-01' and '2011-01-01'
+
+
+select
+i.CustomerId,
+i.Total,
+x.NumberOfItems
+from Invoice i
+	join (select invoiceId, count(*) NumberOfItems
+		  from InvoiceLine il
+		  group by il.InvoiceId
+		  ) x on x.InvoiceId = i.InvoiceId
+where i.InvoiceDate between '2009-01-01' and '2011-01-01'
+
+
+select *
+from invoice i
+	join InvoiceLine x on x.InvoiceId = i.InvoiceId
+where  x.TrackId in (select TrackId from Track where Name like 'a%')
