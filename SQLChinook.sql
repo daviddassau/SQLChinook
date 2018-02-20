@@ -50,4 +50,9 @@ from Invoice
 where InvoiceDate like '%2009%'
 or InvoiceDate like '%2011%'
 
---
+--What are the respective total sales for each of those years?
+select SUM(Total) as [Total Sales for 2009 and 2011]
+from Invoice
+where InvoiceDate like '%2009%'
+or InvoiceDate like '%2011%'
+
