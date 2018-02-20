@@ -33,7 +33,6 @@ select e.FirstName + ' ' + e.LastName Name, i.InvoiceId
 from Employee e
 join customer c on c.SupportRepId = e.EmployeeId
 join invoice i on i.CustomerId = c.CustomerId
---where e.Title = 'Sales Support Agent'
 
 --Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
 select c.FirstName + ' ' + c.LastName Name, 
@@ -112,6 +111,40 @@ from Track t
 	join Album a on a.AlbumId = t.TrackId
 	join MediaType m on m.MediaTypeId = t.TrackId
 	join Genre g on g.GenreId = t.TrackId
+
+--Provide a query that shows all Invoices but includes the # of invoice line items.
+select InvoiceId
+from Invoice
+
+select *
+from InvoiceLine
+
+select i.InvoiceId as [Invoices],
+	   il.TrackId [Number of invoice line items]
+from Invoice i
+	join InvoiceLine il on il.InvoiceLineId = i.InvoiceId
+
+
+--Provide a query that shows total sales made by each sales agent.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
