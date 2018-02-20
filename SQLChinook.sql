@@ -56,3 +56,8 @@ from Invoice
 where InvoiceDate like '%2009%'
 or InvoiceDate like '%2011%'
 
+--Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
+select COUNT(*) as [Number of line items for Invoice 37]
+from InvoiceLine
+where InvoiceId = 37
+
