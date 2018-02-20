@@ -78,3 +78,9 @@ select t.Name as [Track Name],
 	   i.InvoiceLineId
 from Track t
 join InvoiceLine i on i.InvoiceId = t.TrackId
+
+--Provide a query that shows the # of invoices per country.
+select COUNT(InvoiceId) as [Number of invoices],
+	   BillingCountry
+from Invoice
+group by BillingCountry
