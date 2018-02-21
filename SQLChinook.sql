@@ -135,12 +135,14 @@ group by e.FirstName, e.LastName
 
 
 --Which sales agent made the most in sales in 2009?
---select e.FirstName + ' ' + e.LastName as [Sales agent],count(*) as [Number of Sales in 2009] from Employee e
---join Customer c on c.supportrepid = e.employeeid
---join Invoice i on i.customerid = c.customerid
---where DATENAME(yyyy, i.InvoiceDate) like '%2009%'
---group by e.firstname, e.lastname
---order by count(*) desc
+select e.FirstName + ' ' + e.LastName as [Sales Agent],
+	   COUNT(*) as [Number of sales in 2009]
+from Employee e
+	join Customer c on c.SupportRepId = e.EmployeeId
+	join Invoice i on i.CustomerId = c.CustomerId
+where DATENAME(yyyy, i.InvoiceDate) like '%2009%'
+group by e.FirstName, e.LastName
+order by COUNT(*) desc
 
 
 
